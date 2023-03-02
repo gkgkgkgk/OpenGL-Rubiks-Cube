@@ -388,6 +388,13 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 			if (swipeDir == 1) {
 				offset = -xoffset;
 			}
+			
+			if (offset > speed) {
+				offset = speed;
+			}
+			else if (offset < -speed) {
+				offset = -speed;
+			}
 
 			if (abs(currentAngle) <= 90.0f) {
 				cube.rotate_face(offset * 0.25f * deltaTime, currentAngle, justStarted, face, swipeDir, direction, sliceDir, slice, intersection, camera.normalizedYaw);
