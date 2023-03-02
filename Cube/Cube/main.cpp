@@ -389,6 +389,8 @@ void mouse_callback(GLFWwindow* window, double xposIn, double yposIn)
 				offset = -xoffset;
 			}
 			
+			float speed = 15.0f;
+			
 			if (offset > speed) {
 				offset = speed;
 			}
