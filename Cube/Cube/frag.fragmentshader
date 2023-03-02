@@ -1,0 +1,15 @@
+#version 330 core
+out vec4 FragColor;
+in vec2 TexCoord;
+in vec3 ourColor;
+
+uniform float BorderSize = 0.035f;
+void main(){
+    if (TexCoord.x < BorderSize || TexCoord.x > 1.0 - BorderSize || 
+            TexCoord.y < BorderSize || TexCoord.y > 1.0 - BorderSize)
+            FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+    else if (distance(TexCoord, vec2(0.5)) > 0.6)
+                FragColor = vec4(0.0f, 0.0f, 0.0f, 1.0f);
+    else
+        FragColor = vec4(ourColor, 1.0f);
+}
